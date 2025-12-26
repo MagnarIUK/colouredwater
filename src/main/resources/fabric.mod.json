@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "colouredwater",
+  "version": "${version}",
+  "name": "colouredwater",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/colouredwater/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.magnariuk.colouredwater.client.ColouredwaterDataGenerator"
+    ],
+    "client": [
+      "com.magnariuk.colouredwater.client.ColouredwaterClient"
+    ],
+    "main": [
+      "com.magnariuk.colouredwater.Colouredwater"
+    ]
+  },
+  "mixins": [
+    "colouredwater.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
