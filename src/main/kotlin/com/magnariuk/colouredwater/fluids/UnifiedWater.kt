@@ -40,7 +40,7 @@ abstract class UnifiedWater : ColouredWater() {
         fluid: Fluid?,
         direction: Direction?
     ): Boolean {
-        return (direction == Direction.DOWN && (!fluid!!.isIn(FluidTags.WATER) || fluid == Fluids.WATER ) )
+        return (direction == Direction.DOWN && (!state!!.isIn(FluidTags.WATER) || fluid == Fluids.WATER ) )
     }
 
     override fun toBlockState(state: FluidState): BlockState {

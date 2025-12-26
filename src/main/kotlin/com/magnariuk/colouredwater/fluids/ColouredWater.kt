@@ -19,7 +19,7 @@ import net.minecraft.world.WorldView
 abstract class ColouredWater: FlowableFluid() {
 
     override fun matchesType(fluid: Fluid): Boolean {
-        return fluid == getStill() || fluid == getFlowing()
+        return fluid == still || fluid == flowing
     }
 
     protected override fun isInfinite(world: World?): Boolean {
@@ -38,7 +38,7 @@ abstract class ColouredWater: FlowableFluid() {
         fluid: Fluid?,
         direction: Direction?
     ): Boolean {
-        return direction == Direction.DOWN && !fluid!!.isIn(FluidTags.WATER)
+        return direction == Direction.DOWN && !state!!.isIn(FluidTags.WATER)
     }
 
     protected override fun getMaxFlowDistance(world: WorldView?): Int {

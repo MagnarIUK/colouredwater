@@ -22,7 +22,7 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
 import net.minecraft.world.biome.Biome
 
-val MOD_ID = "colouredwater"
+const val MOD_ID = "colouredwater"
 
 object ModFluids {
     lateinit var BLACK_WATER: ColouredWaterSet
@@ -315,7 +315,7 @@ class Colouredwater : ModInitializer {
         )
 
         CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.map()[bucket] =
-            CauldronBehavior { state, world, pos, player, hand, stack ->
+            CauldronBehavior { _, world, pos, player, hand, stack ->
                 CauldronBehavior.fillCauldron(world, pos, player, hand, stack, cauldronBlock.defaultState.with(
                     LeveledCauldronBlock.LEVEL, 3), SoundEvents.ITEM_BUCKET_EMPTY)
             }
