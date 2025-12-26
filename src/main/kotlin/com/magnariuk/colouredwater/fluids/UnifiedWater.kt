@@ -1,6 +1,5 @@
-package com.magnariuk.colouredwater.Fluids
+package com.magnariuk.colouredwater.fluids
 
-import com.magnariuk.colouredwater.ColouredWaterSet
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.fluid.FlowableFluid
@@ -14,6 +13,8 @@ import net.minecraft.state.property.Properties
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.BlockView
+import net.minecraft.world.GameRules
+import net.minecraft.world.World
 
 abstract class UnifiedWater : ColouredWater() {
     lateinit var still: FlowableFluid
@@ -25,6 +26,10 @@ abstract class UnifiedWater : ColouredWater() {
     override fun getFlowing(): Fluid = flowing
     override fun getBucketItem(): Item = bucket
 
+    override fun isInfinite(world: World?): Boolean {
+        return world!!.gameRules.getBoolean(GameRules.WATER_SOURCE_CONVERSION)
+    }
+
     override fun matchesType(fluid: Fluid): Boolean {
         return fluid is UnifiedWater || fluid == Fluids.WATER || fluid == Fluids.FLOWING_WATER
     }
@@ -35,7 +40,7 @@ abstract class UnifiedWater : ColouredWater() {
         fluid: Fluid?,
         direction: Direction?
     ): Boolean {
-        return (direction == Direction.DOWN && !fluid!!.isIn(FluidTags.WATER))
+        return (direction == Direction.DOWN && (!fluid!!.isIn(FluidTags.WATER) || fluid == Fluids.WATER ) )
     }
 
     override fun toBlockState(state: FluidState): BlockState {

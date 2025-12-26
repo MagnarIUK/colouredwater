@@ -1,4 +1,4 @@
-package com.magnariuk.colouredwater.Fluids
+package com.magnariuk.colouredwater.fluids
 
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState

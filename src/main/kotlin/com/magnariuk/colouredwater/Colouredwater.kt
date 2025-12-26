@@ -1,6 +1,6 @@
 package com.magnariuk.colouredwater
 
-import com.magnariuk.colouredwater.Fluids.UnifiedWater
+import com.magnariuk.colouredwater.fluids.UnifiedWater
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.AbstractBlock
@@ -21,7 +21,6 @@ import net.minecraft.registry.Registry
 import net.minecraft.sound.SoundEvents
 import net.minecraft.util.Identifier
 import net.minecraft.world.biome.Biome
-import java.awt.print.Book
 
 val MOD_ID = "colouredwater"
 

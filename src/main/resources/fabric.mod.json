@@ -4,7 +4,9 @@
   "version": "${version}",
   "name": "colouredwater",
   "description": "",
-  "authors": [],
+  "authors": [
+    "MagnarIUK"
+  ],
   "contact": {},
   "license": "GPL-3.0",
   "icon": "assets/colouredwater/icon.png",
